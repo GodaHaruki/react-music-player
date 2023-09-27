@@ -41,6 +41,21 @@ const useAudio = (url: string) => {
   };
 };
 
+export interface useQueMethods {
+  isPlay: boolean;
+  time: number;
+  play: () => Promise<void>;
+  pause: () => void;
+  jump: (number: any) => void;
+  next: () => void;
+  back: () => void;
+  add: (m: Music) => void;
+  playing: UseMusicMethods;
+  musics: Music[];
+  history: Music[];
+  play_with: (m: Music) => void
+}
+
 export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}) => {
   const audio = useAudio(undefined)
 
