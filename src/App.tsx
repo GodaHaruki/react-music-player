@@ -21,9 +21,9 @@ export const App: FC<{}> = () => {
       <div className="flex flex-col h-full min-h-screen">
       <div className="flex-1">
         <Routes>
-          <Route path="" element={<Musics musics={musics} />} />
+          <Route path="" element={<Musics {...{musics, setMusics}} />} />
 
-          <Route path="music" element={<Musics musics={musics} />} />
+          <Route path="music" element={<Musics {...{musics, setMusics}} />} />
 
           <Route path="playlist" element={<Playlist playlists={playlists} />} />
 
