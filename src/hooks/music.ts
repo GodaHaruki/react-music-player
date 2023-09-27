@@ -39,3 +39,17 @@ export const useMusic = (music: Music): UseMusicMethods => {
     soundUrl, imgUrl, free 
   }
 }
+
+export const getSoundUrl = async (music: Music) => {
+  const {sound} = new MusicDB()
+  const s = await sound.get(music.name)
+
+  const url = URL.createObjectURL(s)
+  const free = () => {
+    URL.revokeObjectURL(url)
+  }
+
+  return {
+    url, free
+  }
+}
