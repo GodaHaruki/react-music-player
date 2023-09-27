@@ -11,7 +11,7 @@ const handleFileInput = (fl: FileList) => {
 
   const files = [...new Array(fl.length)].map((_, i) => fl.item(i))
 
-  files.forEach(f => db.putMusic(f, f.name))
+  files.forEach(f => db.putMusic({name: f.name}, f))
 
   db.music.toArray().then(m => setMusics(m))
 }
