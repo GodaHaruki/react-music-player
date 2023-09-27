@@ -1,10 +1,11 @@
 import { Music, MusicCard } from "../components/MusicCard"
 import { Grid } from "../design/Grid"
 import { MusicDB } from "../hooks/db"
+import { useQueMethods } from "../hooks/que"
 
 
-export const Musics: React.FC<{musics: Music[], setMusics: React.Dispatch<React.SetStateAction<Music[]>>}>
-= ({musics, setMusics}) => {
+export const Musics: React.FC<{musics: Music[], setMusics: React.Dispatch<React.SetStateAction<Music[]>>, que: useQueMethods}>
+= ({musics, setMusics, que}) => {
 
 const handleFileInput = (fl: FileList) => {
   const db = new MusicDB()
@@ -27,7 +28,7 @@ const handleFileInput = (fl: FileList) => {
     <div className="col-span-full">
     {
     musics.map(m => 
-      <button onClick={() => }>
+      <button onClick={() => que.play_with(m)}>
     <MusicCard music={m} />
     </button>
     )
