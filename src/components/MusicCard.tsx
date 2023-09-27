@@ -37,18 +37,18 @@ export const MusicCardBig: React.FC<{music: Music}>
   const {name, soundUrl, imgUrl} = useMusic(music)
   
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <img className="
-      w-1/6 aspect-square
+      w-full aspect-square
       rounded-lg
       "
       src={imgUrl} />
 
-      <div className="absolute m-2">
-        <div className="bg-black rounded-md">
+      <div className="absolute bottom-0 left-0 m-2">
+        <div className="bg-black rounded-md p-1">
           {music.name}
         </div>
-        <div className="bg-black rounded-md">
+        <div className="bg-black rounded-md p-1 mt-2">
           {music.artist}
         </div>
       </div>
