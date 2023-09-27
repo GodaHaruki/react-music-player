@@ -56,7 +56,7 @@ export interface useQueMethods {
   play_with: (m: Music) => void
 }
 
-export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}) => {
+export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}): UseMusicMethods => {
   const audio = useAudio(undefined)
 
   const [musics, setMusics] = useState(defaultMusics)
