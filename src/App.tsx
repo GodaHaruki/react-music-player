@@ -4,7 +4,7 @@ import { Menu } from './components/Menu';
 import { Music } from './components/MusicCard';
 import { PlayingBar } from './components/PlayingBar';
 import { Playlist as PlaylistProps} from './components/PlaylistCard';
-import { useQue } from './hooks/que';
+import { useQue, useQueMethods } from './hooks/que';
 import { Musics } from './pages/Musics';
 import { Playing } from './pages/Playing';
 import { Playlist } from './pages/Playlist';
@@ -12,7 +12,7 @@ import { Playlist } from './pages/Playlist';
 import './style.css';
 
 export const App: FC<{}> = () => {
-  const que = useQue()
+  const que: UseQueMethods = useQue()
   const [musics, setMusics] = useState<Music[]>([])
   const [playlists, setPlaylists] = useState<PlaylistProps[]>([])
 
@@ -21,9 +21,9 @@ export const App: FC<{}> = () => {
       <div className="flex flex-col h-full min-h-screen">
       <div className="flex-1">
         <Routes>
-          <Route path="" element={<Musics {...{musics, setMusics}} />} />
+          <Route path="" element={<Musics {...{musics, setMusics, que}} />} />
 
-          <Route path="music" element={<Musics {...{musics, setMusics}} />} />
+          <Route path="music" element={<Musics {...{musics, setMusics, que}} />} />
 
           <Route path="playlist" element={<Playlist playlists={playlists} />} />
 

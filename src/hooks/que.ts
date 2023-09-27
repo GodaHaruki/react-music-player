@@ -41,7 +41,7 @@ const useAudio = (url: string) => {
   };
 };
 
-export interface useQueMethods {
+export interface UseQueMethods {
   isPlay: boolean;
   time: number;
   play: () => Promise<void>;
@@ -56,7 +56,7 @@ export interface useQueMethods {
   play_with: (m: Music) => void
 }
 
-export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}): UseMusicMethods => {
+export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}): UseQueMethods => {
   const audio = useAudio(undefined)
 
   const [musics, setMusics] = useState(defaultMusics)
