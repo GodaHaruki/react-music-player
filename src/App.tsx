@@ -23,6 +23,8 @@ export const App: FC<{}> = () => {
         <Routes>
           <Route path="" element={<Musics musics={musics} />} />
 
+          <Route path="music" element={<Musics musics={musics} />} />
+
           <Route path="playlist" element={<Playlist playlists={playlists} />} />
 
           <Route path="que"
