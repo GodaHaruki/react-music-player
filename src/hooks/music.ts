@@ -22,8 +22,12 @@ export const useMusic = (music: Music): UseMusicMethods => {
   img.get(music.name).then(i => setImgUrl(URL.createObjectURL(i)))
 
   const free = () => {
+    soundUrl ? 
     URL.revokeObjectURL(soundUrl)
+    : null
+    imgUrl ?
     URL.revokeObjectURL(imgUrl)
+    : null
 
     setSoundUrl("")
     setImgUrl("")
