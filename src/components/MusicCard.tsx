@@ -5,29 +5,6 @@ export interface Music {
   artist?: string
 }
 
-export class MusicImpl implements Music {
-  name: string
-  artist?: string|undefined
-  static musicDB = new MusicDB()
-
-  soundUrl: string|undefined
-  imgUrl: string|undefined
-
-  async getSound(music: Music){
-    const b = await MusicImpl.musicDB.sound.get(music.name)
-    
-    this.soundUrl = URL.createObjectURL(b)
-
-    return this.soundUrl
-  }
-
-  async getImage(music: Music){
-    const b = await MusicImpl.musicDB.img.get(music.name)
-
-    this.imgUrl = URL.createObjectURL(b)
-  }
-}
-
 const defaultImgUrl = ""
 
 export const MusicCard: React.FC<{music: Music}>
