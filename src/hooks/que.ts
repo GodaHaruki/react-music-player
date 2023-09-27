@@ -64,7 +64,7 @@ export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}): UseQ
   const [playing, _setPlaying] = useState<UseMusicMethods | undefined>(undefined)
 
   const setPlaying = (m: Music) => {
-    playing.free()
+    playing ? playing.free() : null
     const mu = useMusic(m)
     _setPlaying(mu)
     audio.set(mu.soundUrl)
