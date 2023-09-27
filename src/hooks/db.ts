@@ -19,18 +19,22 @@ export class MusicDB extends Dexie {
     });
   }
 
-  putMusic(music: Music, sound: Blob, img: Blob){
+  putMusic(music: Music, sound: Blob, img?: Blob){
     this.music.put(music, music.name)
     this.sound.put(sound, music.name)
+    img ? 
     this.img.put(img, music.name)
+    : null
   }
 
-  putMusics(musics: Music[], sounds: Blob[], imgs: Blob[]){
+  putMusics(musics: Music[], sounds: Blob[], imgs?: Blob[]){
     const keys = musics.map(m => m.name)
 
     this.music.bulkPut(musics, keys)
     this.sound.bulkPut(sounds, keys)
+    imgs ?
     this.img.bulkPut(imgs, keys)
+    :null
   }
 
   
