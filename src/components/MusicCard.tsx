@@ -1,17 +1,15 @@
 import { MusicDB } from "../hooks/db"
+import { useMusic } from "../hooks/music"
 
 export interface Music {
   name: string  
   artist?: string
 }
 
-const defaultImgUrl = ""
-
 export const MusicCard: React.FC<{music: Music}>
 = ({music}) => {
 
-  const {name, url} = music
-  const imgUrl = music.imgUrl ? music.imgUrl : defaultImgUrl
+  const {name, soundUrl, imgUrl} = useMusic(music)
 
   return (
     <div className="flex">
@@ -36,9 +34,8 @@ export const MusicCard: React.FC<{music: Music}>
 
 export const MusicCardBig: React.FC<{music: Music}>
 = ({music}) => {
-  const {name, url} = music
-  const imgUrl = music.imgUrl ? music.imgUrl : defaultImgUrl
-
+  const {name, soundUrl, imgUrl} = useMusic(music)
+  
   return (
     <div className="relative">
       <img className="
