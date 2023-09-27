@@ -1,7 +1,7 @@
 import { Music, MusicCard } from "../components/MusicCard"
 import { Grid } from "../design/Grid"
 import { MusicDB } from "../hooks/db"
-import { useQueMethods } from "../hooks/que"
+import { UseQueMethods } from "../hooks/que"
 
 
 export const Musics: React.FC<{musics: Music[], setMusics: React.Dispatch<React.SetStateAction<Music[]>>, que: UseQueMethods}>

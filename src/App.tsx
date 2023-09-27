@@ -4,7 +4,7 @@ import { Menu } from './components/Menu';
 import { Music } from './components/MusicCard';
 import { PlayingBar } from './components/PlayingBar';
 import { Playlist as PlaylistProps} from './components/PlaylistCard';
-import { useQue, useQueMethods } from './hooks/que';
+import { useQue, UseQueMethods } from './hooks/que';
 import { Musics } from './pages/Musics';
 import { Playing } from './pages/Playing';
 import { Playlist } from './pages/Playlist';
