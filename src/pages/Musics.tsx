@@ -27,7 +27,9 @@ const handleFileInput = (fl: FileList) => {
     <div className="col-span-full">
     {
     musics.map(m => 
+      <button onClick={() => }>
     <MusicCard music={m} />
+    </button>
     )
     }
     </div>
