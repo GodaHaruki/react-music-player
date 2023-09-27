@@ -1,10 +1,7 @@
 import { Grid } from "../design/Grid"
 
 export interface Music {
-  name: string
-  url: string
-
-  imgUrl?: string
+  name: string  
   artist?: string
 }
 

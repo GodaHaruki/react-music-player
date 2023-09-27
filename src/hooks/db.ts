@@ -2,49 +2,36 @@ import Dexie from "dexie";
 import { Album } from "../components/AlbumCard";
 import { Music } from "../components/MusicCard";
 
-class MusicDB extends Dexie {
-  music: Dexie.Table<Music, number>
-  playlist: Dexie.Table<Album, number>
+export class MusicDB extends Dexie {
+  music!: Dexie.Table<Music, string>
+  playlist!: Dexie.Table<Album, string>
+  sound!: Dexie.Table<Blob, string>
+  img!: Dexie.Table<Blob, string>
 
   constructor(){
     super("musics")
 
     this.version(1).stores({
-      music: '++id,data',
-      playlist: '++id,data'
+      music: 'name,data',
+      playlist: 'name,data',
+      sound: 'name,blob',
+      img: 'name,blob',
     });
   }
-}
 
-class ResponseDB extends Dexie {
-  music: Dexie.Table<Response, string> // url
-  image: Dexie.Table<Response, string>
-  other: Dexie.Table<Response, string>
-
-  constructor(){
-    super("files")
-
-    this.version(1).stores({
-      music: '',
-      image: '',
-      other: '',
-    })
+  putMusic(music: Music, sound: Blob, img: Blob){
+    this.music.put(music, music.name)
+    this.sound.put(sound, music.name)
+    this.img.put(img, music.name)
   }
-}
 
-const useDB = () => {
-  const db = new MusicDB()
-  return {
-    music: db.music, 
-    playlist: db.playlist
-  }
-}
+  putMusics(musics: Music[], sounds: Blob[], imgs: Blob[]){
+    const keys = musics.map(m => m.name)
 
-const useRequest = () => {
-  const db = new ResponseDB()
-  return {
-    music: db.music,
-    image: db.image,
-    other: db.other
+    this.music.bulkPut(musics, keys)
+    this.sound.bulkPut(sounds, keys)
+    this.img.bulkPut(imgs, keys)
   }
+
+  
 }
