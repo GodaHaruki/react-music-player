@@ -65,7 +65,8 @@ export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}): UseQ
 
   const setPlaying = (m: Music) => {
     playing ? playing.free() : null
-    const mu = useMusic(m)
+    const mu = useMusic(m) // it cause error due to hook rules
+    // トップレベル以外の場所でhook呼んじゃってる
     _setPlaying(mu)
     audio.set(mu.soundUrl)
   }
