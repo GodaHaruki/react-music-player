@@ -4,7 +4,7 @@ import { MusicDB } from "../hooks/db"
 import { useQueMethods } from "../hooks/que"
 
 
-export const Musics: React.FC<{musics: Music[], setMusics: React.Dispatch<React.SetStateAction<Music[]>>, que: useQueMethods}>
+export const Musics: React.FC<{musics: Music[], setMusics: React.Dispatch<React.SetStateAction<Music[]>>, que: UseQueMethods}>
 = ({musics, setMusics, que}) => {
 
 const handleFileInput = (fl: FileList) => {
