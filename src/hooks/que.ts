@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Music } from "../components/MusicCard";
+import { useMusic, UseMusicMethods } from "./music";
 
 const useAudio = (url: string) => {
 
@@ -45,11 +46,12 @@ export const useQue = (defaultMusics: Music[] = [], defaultOption:{} = {}) => {
 
   const [musics, setMusics] = useState(defaultMusics)
   const [history, setHistory] = useState<Music[]>([])
-  const [playing, _setPlaying] = useState<Music | undefined>(undefined)
+  const [playing, _setPlaying] = useState<UseMusicMethods | undefined>(undefined)
 
   const setPlaying = (m: Music) => {
-    _setPlaying(m)
-    audio.set(m.url)
+    const mu = useMusic(m)
+    _setPlaying(mu)
+    audio.set(mu.soundUrl)
   }
 
   const [option, setOption] = useState(defaultOption)
