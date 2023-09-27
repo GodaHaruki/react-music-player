@@ -1,4 +1,4 @@
-import { MusicCard } from "../components/MusicCard"
+import { Music, MusicCard } from "../components/MusicCard"
 
 export const Musics: React.FC<{musics: Music[]}>
 = ({musics}) => {

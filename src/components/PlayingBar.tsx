@@ -20,8 +20,7 @@ export const PlayingBar: React.FC<{
           <MusicCard music={que.playing} />
           :
           <MusicCard music={{
-            name: "not selected",
-            url: ""   
+            name: "not selected",  
           }} />
         }
       </Link>
